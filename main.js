@@ -134,7 +134,10 @@ Promise.all(initPromises).then(() => {
 
 async function attemptConvertPath (inputFile, path) {
 
-  const file = { bytes: inputFile.bytes, name: inputFile.name };
+  const file = {
+    bytes: new Uint8Array(inputFile.bytes),
+    name: inputFile.name
+  };
 
   for (let i = 0; i < path.length - 1; i ++) {
     try {
